@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.26)
-set(PROJECTNAME "JamTemplate")
+set(PROJECTNAME "Elements")
 project(${PROJECTNAME})
 
 ## Helper Functions
@@ -12,7 +12,6 @@ set(BUILD_SHARED_LIBS OFF)
 
 ## Other variables and compiler setup I
 #####################################################
-
 if (JT_ENABLE_AUDIO_TESTS)
     add_definitions(-DJT_ENABLE_AUDIO_TESTS)
 endif ()
@@ -22,7 +21,7 @@ if (JT_ENABLE_CLANG_TIDY)
 endif ()
 
 
-if (JT_ENABLE_LTO_OPTIMIZATION)
+if (ENABLE_LTO_OPTIMIZATION)
     if (MSVC)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /GL /LTCG")
     else ()
@@ -80,7 +79,6 @@ else ()
 endif ()
 
 add_subdirectory(impl)
-add_subdirectory(test)
 
 ## copy .clang-format to build directory
 #####################################################

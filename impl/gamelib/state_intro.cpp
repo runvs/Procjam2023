@@ -2,7 +2,7 @@
 #include <audio/sound/sound.hpp>
 #include <game_interface.hpp>
 #include <game_properties.hpp>
-#include <state_menu.hpp>
+#include <state_game.hpp>
 #include <tweens/tween_alpha.hpp>
 #include <tweens/tween_position.hpp>
 
@@ -38,7 +38,7 @@ void StateIntro::onUpdate(float elapsed)
 {
     m_sprite->update(elapsed);
     if (getAge() >= 1.7) {
-        getGame()->stateManager().switchState(std::make_shared<StateMenu>());
+        getGame()->stateManager().switchState(std::make_shared<StateGame>());
     }
 }
 
